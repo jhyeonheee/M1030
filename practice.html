@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국립중앙박물관 전시 섹션</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      font-family: "Pretendard", sans-serif;
+      color: #fff;
+    }
+
+    #exhibit-section {
+      background: #000;
+      color: #fff;
+      padding: 120px 0;
+    }
+
+    /* 탭 메뉴 */
+    #exhibit-section .tab-menu {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    #exhibit-section .tab-menu button {
+      font-size: 20px;
+      color: #999;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: color 0.3s;
+    }
+
+    #exhibit-section .tab-menu button.active {
+      color: #fff;
+      border-bottom: 2px solid #ff8800;
+    }
+
+    /* 콘텐츠 */
+    #exhibit-section .tab-content {
+      display: none;
+    }
+    #exhibit-section .tab-content.active {
+      display: block;
+    }
+
+    .display-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
+      gap: 80px;
+    }
+
+    .display-text {
+      flex: 1;
+      max-width: 480px;
+      transition: opacity 0.4s ease;
+    }
+
+    .display-text.fade-out {
+      opacity: 0;
+    }
+
+    .display-text .display-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .display-text .label {
+      border: 1px solid #ccc;
+      padding: 4px 10px;
+    }
+
+    .display-title {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .display-desc {
+      font-size: 17px;
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .btn-more {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 30px;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    .btn-more:hover {
+      background: #ff8800;
+      color: #fff;
+    }
+
+    .swiper.display {
+      flex: 1.3;
+    }
+
+    .swiper.display img {
+      width: 350px;
+      height: 525px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.8);
+    }
+
+    .swiper-slide-active img {
+      transform: translateY(-10px);
+      filter: brightness(1);
+    }
+  </style>
+</head>
+
+<body>
+  <section id="exhibit-section" class="section02">
+    <div class="inner">
+      <div class="tab-menu">
+        <button class="tab-btn active" data-tab="current">현재 전시</button>
+        <button class="tab-btn" data-tab="upcoming">예정 전시</button>
+        <button class="tab-btn" data-tab="past">지난 전시</button>
+      </div>
+
+      <!-- 현재 전시 -->
+      <div class="tab-content active" id="current">
+        <div class="display-wrap">
+          <div class="display-text">
+            <div class="display-meta">
+              <span class="label">테마전</span>
+              <span class="date">전시 기간 | 2025.05.20 - 2025.12.07</span>
+            </div>
+            <h2 class="display-title">각角진 백자 이야기</h2>
+            <p class="display-desc">
+              조선 17세기, 그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+              물레로 만든 그릇의 겉면을 팔각八角 내지 십각十角으로 ‘모깎기’한 것입니다.
+              검소함을 강조하던 사회 분위기 속에서, 모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보세요.
+            </p>
+            <a href="#" class="btn-more">자세히 보기</a>
+          </div>
+
+          <div class="swiper display current-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="img/전시(0).jpg" alt="각角진 백자 이야기" /></div>
+              <div class="swiper-slide"><img src="img/전시(2).png" alt="한성 475, 두 왕의 승부수" /></div>
+              <div class="swiper-slide"><img src="img/전시(3).png" alt="국보순회전, 모두가 함께하는 180일의 여정" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 예정 전시 -->
+      <div class="tab-content" id="upcoming">
+        <div class="display-wrap">
+          <div class="display-text">
+            <div class="display-meta">
+              <span class="label">특별전</span>
+              <span class="date">전시 기간 | 2026.01.10 - 2026.06.20</span>
+            </div>
+            <h2 class="display-title">비엔나 1900, 꿈꾸는 예술가들</h2>
+            <p class="display-desc">
+              국립중앙박물관은 오스트리아 레오폴트미술관과 협력하여 19세기 말 비엔나에서 변화를 꿈꿨던 예술가들의
+              활동과 모더니즘으로의 전환 과정을 소장품 총 191점으로 선보입니다.
+            </p>
+            <a href="#" class="btn-more">자세히 보기</a>
+          </div>
+
+          <div class="swiper display upcoming-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="img/예정전시(1).png" alt="비엔나 1900, 꿈꾸는 예술가들" /></div>
+              <div class="swiper-slide"><img src="img/예정전시(2).png" alt="일본미술, 네 가지 시선" /></div>
+              <div class="swiper-slide"><img src="img/예정전시(3).png" alt="새 나라 새 미술: 조선 전기 미술 대전" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 지난 전시 -->
+      <div class="tab-content" id="past">
+        <div class="display-wrap">
+          <div class="display-text">
+            <div class="display-meta">
+              <span class="label">기획전</span>
+              <span class="date">전시 기간 | 2024.07.01 - 2024.12.20</span>
+            </div>
+            <h2 class="display-title">푸른 세상을 빚다, 고려 상형청자</h2>
+            <p class="display-desc">
+              고려가 이룩한 청자문화의 정점인 상형청자를 단독 조명하는 전시로,
+              아름다운 상형청자에 담긴 고려 사람들의 세상과 이야기를 소개합니다.
+            </p>
+            <a href="#" class="btn-more">자세히 보기</a>
+          </div>
+
+          <div class="swiper display past-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="img/지난전시(1).jpg.png" alt="푸른 세상을 빚다, 고려 상형청자" /></div>
+              <div class="swiper-slide"><img src="img/지난전시(2).jpg.png" alt="스투파의 숲, 신비로운 인도 이야기" /></div>
+              <div class="swiper-slide"><img src="img/지난전시(3).png" alt="탕탕평평-글과 그림의 힘" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    (function () {
+      const root = document.getElementById("exhibit-section");
+
+      // 텍스트 변경 함수
+      function syncText(swiper) {
+        const active = swiper.slides[swiper.activeIndex];
+        if (!active) return;
+        const title = active.querySelector("img").alt || "";
+        let meta = "", desc = "";
+
+        if (title.includes("백자")) {
+          meta = "테마전 | 2025.05.20 - 2025.12.07";
+          desc = "조선 17세기 각角진 백자 전시. 팔각/십각 조형미와 절제된 미학을 감상할 수 있습니다.";
+        } else if (title.includes("한성")) {
+          meta = "특별전 | 2025.09.16 - 2026.02.22";
+          desc = "백제 도읍지 한성의 역사와 문화, 그리고 찬란한 예술을 조명합니다.";
+        } else if (title.includes("국보")) {
+          meta = "기획전 | 2025.09.19 - 2025.11.23";
+          desc = "대표 국보 중심으로 유물과 예술의 만남을 경험하세요.";
+        } else if (title.includes("비엔나")) {
+          meta = "특별전 | 2026.01.10 - 2026.06.20";
+          desc = "비엔나의 예술가들이 모던 시대를 열었던 찬란한 순간을 전시합니다.";
+        } else if (title.includes("푸른 세상")) {
+          meta = "기획전 | 2024.07.01 - 2024.12.20";
+          desc = "고려 상형청자의 비취빛 예술과 섬세한 장인의 손길을 만날 수 있습니다.";
+        }
+
+        const textBox = swiper.el.closest(".display-wrap").querySelector(".display-text");
+        const titleBox = textBox.querySelector(".display-title");
+        const descBox = textBox.querySelector(".display-desc");
+        const metaBox = textBox.querySelector(".display-meta");
+
+        textBox.classList.add("fade-out");
+        setTimeout(() => {
+          titleBox.textContent = title;
+          descBox.textContent = desc;
+          const [label, date] = meta.split("|");
+          metaBox.innerHTML = `
+            <span class="label">${(label || "").trim()}</span>
+            <span class="date">${(date || "").trim()}</span>`;
+          textBox.classList.remove("fade-out");
+        }, 220);
+      }
+
+      // Swiper 생성 함수
+      function makeSwiper(selector) {
+        const sw = new Swiper(selector, {
+          slidesPerView: 2.3,
+          spaceBetween: 30,
+          loop: true,
+          autoplay: { delay: 4000, disableOnInteraction: false },
+          on: {
+            init() { syncText(this); },
+            slideChange() { syncText(this); },
+          },
+        });
+        return sw;
+      }
+
+      // 슬라이더 초기화
+      const swipers = {
+        current: makeSwiper(".current-swiper"),
+        upcoming: makeSwiper(".upcoming-swiper"),
+        past: makeSwiper(".past-swiper"),
+      };
+
+      // 탭 전환 로직
+      const tabs = root.querySelectorAll(".tab-btn");
+      const contents = root.querySelectorAll(".tab-content");
+
+      function showTab(key) {
+        contents.forEach(c => c.classList.toggle("active", c.id === key));
+        tabs.forEach(t => t.classList.toggle("active", t.dataset.tab === key));
+
+        Object.entries(swipers).forEach(([name, sw]) => {
+          if (name === key) {
+            sw.update();
+            sw.autoplay.start();
+            syncText(sw);
+          } else {
+            sw.autoplay.stop();
+          }
+        });
+      }
+
+      tabs.forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.preventDefault();
+          const key = btn.dataset.tab;
+          showTab(key);
+        });
+      });
+
+      showTab("current");
+    })();
+  </script>
+</body>
+</html>

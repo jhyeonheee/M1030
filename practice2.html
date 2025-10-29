@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국립중앙박물관 전시 섹션</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            font-family: "Pretendard", sans-serif;
+            color: #fff;
+        }
+
+        #exhibit-section {
+            padding: 120px 0;
+            background: #000;
+            color: white;
+        }
+
+        /* 탭 메뉴 */
+        #exhibit-section .tab-menu {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        #exhibit-section .tab-menu button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #777;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 10px 20px;
+        }
+
+        #exhibit-section .tab-menu button.active {
+            color: #fff;
+            border-bottom: 2px solid #ff8800;
+        }
+
+        /* 콘텐츠 */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .display-wrap {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 80%;
+            margin: 0 auto;
+            gap: 80px;
+        }
+
+        .display-text {
+            flex: 1;
+            max-width: 550px;
+            transition: opacity 0.4s ease;
+        }
+
+        .display-text.fade-out {
+            opacity: 0;
+        }
+
+        .display-text .top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .display-text .top span {
+            border: 1px solid #ccc;
+            padding: 4px 10px;
+        }
+
+        .display-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .display-text span {
+            display: block;
+            font-size: 16px;
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .bottom {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            padding: 10px 30px;
+            border-radius: 3px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .bottom:hover {
+            background: #ff8800;
+            color: #fff;
+        }
+
+        /* 슬라이드 */
+        .swiper.display {
+            flex: 1.3;
+            overflow: hidden;
+        }
+
+        .swiper.display .swiper-slide {
+            width: auto;
+            transition: transform 0.4s ease;
+        }
+
+        .swiper.display .swiper-slide .list .info{
+            display: none;
+        }
+        .swiper.display img {
+            width: 350px;
+            height: 525px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: brightness(0.8);
+        }
+
+        .swiper-slide-active img {
+            transform: translateY(-10px);
+            filter: brightness(1);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="exhibit-section">
+        <div class="tab-menu">
+            <button class="tab-btn active" data-tab="current">현재 전시</button>
+            <button class="tab-btn" data-tab="upcoming">예정 전시</button>
+            <button class="tab-btn" data-tab="past">지난 전시</button>
+        </div>
+
+        <!-- ✅ 현재 전시 -->
+        <div class="tab-content active" id="current">
+            <div class="display-wrap">
+                <div class="display-text">
+                    <div class="top">
+                        <span>테마전</span>
+                        <div class="date">
+                            <p>전시 기간 | 2025.05.20 - 2025.12.07</p>
+                        </div>
+                    </div>
+                    <h2>각角진 백자 이야기</h2>
+                    <span class="desc-text">조선 17세기, 그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+                        물레로 만든 그릇의 겉면을 팔각八角 내지 드물게 육각六角이나 십각十角으로
+                        ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서,
+                        모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보았으면 합니다.</span>
+                    <a href="#" class="bottom">자세히 보기</a>
+                </div>
+
+                <div class="swiper display current-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- 5개 전시 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>각角진 백자 이야기</h2>
+                                        <span>조선 17세기,그릇의 표면에 각角이 진 백자가 새롭게 나타났습니다.
+                                            물레로 만든 그릇의 겉면을 팔각八角 내지 드물게 육각六角이나 십각十角으로
+                                            ‘모깎기’한 것입니다. 검소함을 강조하던 사회 분위기 속에서,
+                                            모깎기 기법으로 각과 면이 조화된 백자의 은근한 멋을 함께 느껴보았으면 합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/전시(0).jpg" alt="각角진 백자 이야기"></div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>한성 475, 두 왕의 승부수​</h2>
+                                        <span>개로왕과 장수왕은 20년에 걸쳐 마치 바둑을 두듯 서로 수를 주고받았습니다.
+                                            개로왕은 뜻을 이루지 못했지만, 그의 의지와 정치적 유산은 훗날
+                                            ‘갱위강국(更爲强國)’의 밑거름이 되었습니다. 이번 전시는 백제와 고구려의 갈등의 역사를 소개합니다.
+                                            장수왕에 당당히 맞선 개로왕을 새롭게 조명합니다.
+                                            1,550년 전 한반도를 뒤흔든 백제와 고구려의 한성전투에 여러분을 초대합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/전시(2).png" alt="한성 475, 두 왕의 승부수"></div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.09.19 - 2025.11.23</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>국보순회전, 모두가 함께하는 180일의 여정</h2>
+                                        <span>국보순회전은 수도권에 집중된 국보·보물급 문화유산을 지역 가까이에서 만날 수 있도록 기획되었습니다.
+                                            이번 전시에서는 고려 말에서 조선 초에 제작된 분청사기를 소개합니다.이번 특별전을 통해 분청사기의 다양한
+                                            제작기법과 장인들의 섬세한 손길, 그리고 우리 도자가 지닌 고유의 미학을 느껴보시기 바랍니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/전시(3).png" alt="국보순회전, 모두가 함께하는 180일의 여정"></div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>국보순회전, 모두가 함께하는 180일의 여정</h2>
+                                        <span>멀리 가지 않아도, 가까운 박물관에서 우리 문화유산의 아름다움과 그 속에 담긴 마음을 마주할 수 있는 시간이
+                                            다시 찾아옵니다.2024년에 이어 올해도 국립중앙박물관, 국립중앙박물관에 속한 국립박물관, 그리고 지방자치단체가 함께 준비한
+                                            국보순회전이 180일의 여정을 시작합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/전시(4).png" alt="국보순회전, 모두가 함께하는 180일의 여정(2)"></div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.07.25 - 2025.12.28</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>두 발로 세계를 제패하다</h2>
+                                        <span>1936년 베를린 올림픽에서 조국을 가슴에 품고 달렸던 손기정 선수와
+                                            그의 발자취를 따라 세계 무대에서 활약한 제자들의 이야기,
+                                            그리고 1988년 서울에서 성화를 봉송했던 감동의 순간들을 담았습니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/전시(5).jpg" alt="두 발로 세계를 제패하다"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ 예정 전시 -->
+        <div class="tab-content" id="upcoming">
+            <div class="display-wrap">
+                <!-- 왼쪽 텍스트 영역 -->
+                <div class="display-text">
+                    <div class="top">
+                        <span>테마전</span>
+                        <div class="date">
+                            <p>전시 기간 | 2025.05.20 - 2025.12.07</p>
+                        </div>
+                    </div>
+                    <h2>인상주의에서 초기 모더니즘까지, 빛을 수집한 사람들</h2>
+                    <span class="desc-text">19세기 후반 일상의 풍경을 밝은 색채와 특유의 붓놀림으로 그린 독창적인 화풍은 처음에는 조롱의 대상이었지만,
+                        훗날 여러 예술가들에게 영감을 주면서 오늘날 모더니즘의 문을 열었다고 평가됩니다.
+                        이번 전시에서는 메트로폴리탄박물관 소장 로버트 리먼 컬렉션 가운데 회화와 드로잉 81점을 선보입니다.
+                        화가들의 새로운 시선과, 한 수집가가 남긴 열정의 흔적을 함께 만나보세요.</span>
+                    <a href="#" class="bottom">자세히 보기</a>
+                </div>
+
+                <!-- 오른쪽 슬라이드 영역 -->
+                <div class="swiper display upcoming-swiper">
+                    <div class="swiper-wrapper">
+
+                        <!-- 🖼️ 예정전시 1 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>인상주의에서 초기 모더니즘까지, 빛을 수집한 사람들</h2>
+                                        <span>19세기 후반 일상의 풍경을 밝은 색채와 특유의 붓놀림으로 그린 독창적인 화풍은 처음에는 조롱의 대상이었지만,
+                                            훗날 여러 예술가들에게 영감을 주면서 오늘날 모더니즘의 문을 열었다고 평가됩니다.
+                                            이번 전시에서는 메트로폴리탄박물관 소장 로버트 리먼 컬렉션 가운데 회화와 드로잉 81점을 선보입니다.
+                                            화가들의 새로운 시선과, 한 수집가가 남긴 열정의 흔적을 함께 만나보세요.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/예정전시(1).png" alt="인상주의에서 초기 모더니즘까지, 빛을 수집한 사람들"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 예정전시 2 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>비엔나 1900, 꿈꾸는 예술가들</h2>
+                                        <span>국립중앙박물관은 오스트리아 레오폴트미술관과 협력하여 19세기 말 비엔나에서 변화를 꿈꿨던 예술가들의 활동과
+                                            모더니즘으로의 전환 과정을 레오폴트미술관 소장품 총 191점으로 선보입니다.
+                                            19세기, 아름답고 고풍스러운 문화와 예술의 중심지 비엔나로, 여러분을 초대합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/예정전시(2).png" alt="비엔나 1900, 꿈꾸는 예술가들"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 예정전시 3 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>일본미술, 네 가지 시선</h2>
+                                        <span>국립중앙박물관과 도쿄국립박물관은 한일 국교 정상화 60주년을 기념하여,
+                                            일본미술을 새로운 시각에서 조망하는 특별전 《일본미술, 네 가지 시선》을 공동 개최합니다.
+                                            양 기관은 오랫동안 양국의 역사와 문화에 대한 이해를 높이기 위해 긴밀히 교류해 왔으며,
+                                            그 성과를 바탕으로 한국 관람객에게 일본미술을 소개하는 뜻깊은 자리를 마련하였습니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/예정전시(3).png" alt="일본미술, 네 가지 시선"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 예정전시 4 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>새 나라 새 미술: 조선 전기 미술 대전</h2>
+                                        <span>1392년, 새 나라 조선이 시작되었습니다.
+                                            새로운 나라의 시작과 함께 미술에도 새로운 기운이 넘치기 시작했습니다.
+                                            조선 건국부터 16세기까지는 지난 시대의 물질적 기반 위에 유교 국가의 새로운 이상과 아름다움을 지향한 시기였습니다.
+                                            이러한 변화 속에서 이전에 본 적 없는 미술이 만들어졌습니다.
+                                            국립중앙박물관은 특별전 [새 나라 새 미술: 조선 전기 미술 대전]을 개최합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/예정전시(4).png" alt="새 나라 새 미술: 조선 전기 미술 대전"></div>
+                            </div>
+                        </div>
+
+                    </div> <!-- .swiper-wrapper end -->
+                </div> <!-- .swiper.display end -->
+            </div> <!-- .display-wrap end -->
+        </div> <!-- .tab-content (upcoming) end -->
+
+        <!-- ✅ 지난 전시 -->
+        <div class="tab-content" id="past">
+            <div class="display-wrap">
+
+                <!-- 왼쪽 텍스트 영역 -->
+                <div class="display-text">
+                    <div class="top">
+                        <span>테마전</span>
+                        <div class="date">
+                            <p>전시 기간 | 2025.07.10 - 2025.09.22</p>
+                        </div>
+                    </div>
+                    <h2>'三國三色-동아시아의 칠기'</h2>
+                    <span class="desc-text">국립중앙박물관, 일본 도쿄국립박물관, 중국 국가박물관이 공동으로 기획한 동아시아의 칠기’전은 한일중
+                        국립박물관 관장회의와 연계하여 개최하는 전시입니다. 시간의 예술이라고도 불리는 ‘삼국삼색’의 한일중 삼국 칠공예의 아름다움을
+                        마음껏 감상해보시기 바랍니다.</span>
+                    <a href="#" class="bottom">자세히 보기</a>
+                </div>
+
+                <!-- 오른쪽 슬라이드 영역 -->
+                <div class="swiper display past-swiper">
+                    <div class="swiper-wrapper">
+
+                        <!-- 🖼️ 지난전시 1 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.07.10 - 2025.09.22</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>'三國三色-동아시아의 칠기'</h2>
+                                        <span>국립중앙박물관, 일본 도쿄국립박물관, 중국 국가박물관이 공동으로 기획한 동아시아의 칠기’전은 한일중
+                                            국립박물관 관장회의와 연계하여 개최하는 전시입니다. 시간의 예술이라고도 불리는 ‘삼국삼색’의 한일중 삼국 칠공예의 아름다움을
+                                            마음껏 감상해보시기 바랍니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(1).jpg.png" alt="三國三色-동아시아의 칠기"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 2 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2024.11.06 - 2025.03.03</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>푸른 세상을 빚다, 고려 상형청자</h2>
+                                        <span>고려가 이룩한 청자문화의 정점인 상형청자를 단독 조명하는 전시로, 상형청자의 역사와 문화사적 맥락을 짚고,
+                                            아름다운 상형청자에 담긴 고려 사람들의 세상과 이야기를 소개</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(2).jpg.png" alt="푸른 세상을 빚다, 고려 상형청자"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 3 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>마나 모아나-신성한 바다의 예술, 오세아니아</h2>
+                                        <span>오세아니아 예술과 문화에 대해 깊이 있게 조망하는 국내 최초의 전시로,
+                                            프랑스 케브랑리-자크시라크박물관의 18~20세기 오세아니아 소장품 총 180여 건을 소개합니다.
+                                            지구라는 섬 위에서 인간이 이룬 다양한 문화를 만나고자 합니다. '마나 모아나'와 함께 공감과 여운 가득한 시간 되시길
+                                            바랍니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(3).png" alt="마나 모아나-신성한 바다의 예술, 오세아니아"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 4 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.04.16 - 2025.10.17</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>스투파의 숲, 신비로운 인도 이야기</h2>
+                                        <span>끓어오르듯 뜨겁고 활기찬 나라, 인도 남쪽에서 온 생명력 넘치는 신들의 미술과 석가모니의 이야기를 소개합니다.
+                                            21세기 들어 새로이 조사된 파니기리(Phanigiri, Telangana) 유적의 출토품을 포함,
+                                            우리나라에서 최초로 공개되는 남인도 불교미술품을 만나보시기 바랍니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(4).jpg" alt="스투파의 숲, 신비로운 인도 이야기"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 5 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>탕탕평평蕩蕩平平-글과 그림의 힘</h2>
+                                        <span>2024년은 영조 즉위 300주년이 되는 해입니다. 특별전 [탕탕평평-글과 그림의 힘]은 영조와 정조가 나라의
+                                            중심에 서서 ‘탕평한 세상’을 만들기 위해 ‘글과 그림의 힘’을 어떻게 활용했는지에 주목하는 전시입니다.
+                                            영조와 정조가 뜻을 전달하기 위해 글과 그림으로 ‘소통’했듯 전시는 ‘소통’의 산물입니다.
+                                            누구나 다 아는 영조와 정조의 알려지지 않은 이야기로 여러분을 초대합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(5).jpg" alt="탕탕평평-글과 그림의 힘"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 6 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>부처의 뜰 - 청양 장곡사 괘불</h2>
+                                        <span>국립중앙박물관에서는 열 여덟 번째 괘불전을 맞아 ‘부처의 뜰-청양 장곡사 괘불’을 개최합니다.
+                                            이번에 소개하는 국보 [청양 장곡사 괘불]은 장곡사 대웅전 마당에서 열린 영산대회에 걸기 위해 만든 괘불이라는 기록이 있습니다.
+                                            박물관에 펼쳐진 부처의 뜰로 여러분을 초대합니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(6).jpg" alt="부처의 뜰 - 청양 장곡사 괘불"></div>
+                            </div>
+                        </div>
+
+                        <!-- 🖼️ 지난전시 7 -->
+                        <div class="swiper-slide">
+                            <div class="list">
+                                <div class="info">
+                                    <div class="top">
+                                        <span>테마전</span>
+                                        <div class="date">
+                                            <p>전시 기간</p>
+                                            <p>|</p>
+                                            <p>2025.05.20 - 2025.12.07</p>
+                                        </div>
+                                    </div>
+                                    <div class="middle">
+                                        <h2>우리가 인디언으로 알던 사람들</h2>
+                                        <span>우리가 인디언으로 알던 북미 원주민은 미국 대륙에만 570여 개의 부족이 있으며 지역에 따라 다양한 문화를 가지고 있습니다.
+                                            이번 전시에는 우리가 잘 알고 있는 독수리 깃털 머리 장식, 티피를 비롯하여 43개 부족의 과거와 현재를 아우르는 공예품,
+                                            회화 등 총 151점의 전시품을 국내 최초로 선보입니다.</span>
+                                    </div>
+                                    <a href="#" class="bottom">자세히 보기</a>
+                                </div>
+                                <div class="image"><img src="img/지난전시(8).jpg" alt="우리가 인디언으로 알던 사람들"></div>
+                            </div>
+                        </div>
+
+                    </div> <!-- .swiper-wrapper end -->
+                </div> <!-- .swiper.display end -->
+            </div> <!-- .display-wrap end -->
+        </div> <!-- .tab-content (past) end -->
+
+    </section><!-- #exhibit-section end -->
+
+    <!-- ✅ Swiper + jQuery 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+  (function () {
+    const root = document.getElementById("exhibit-section");
+    const tabs = root.querySelectorAll(".tab-btn");
+    const contents = root.querySelectorAll(".tab-content");
+
+    // --------------------------
+    // 🧩 슬라이드 변경 시 텍스트 자동 교체
+    // --------------------------
+    function syncText(swiper) {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      if (!activeSlide) return;
+
+      // 🎯 슬라이드 안에서 데이터 추출
+      const title = activeSlide.querySelector(".middle h2")?.textContent.trim() || "";
+      const desc = activeSlide.querySelector(".middle span")?.textContent.trim() || "";
+      const date = activeSlide.querySelector(".top .date p:last-child")?.textContent.trim() || "";
+      const label = activeSlide.querySelector(".top span")?.textContent.trim() || "";
+
+      // 🎯 왼쪽 텍스트 영역
+      const displayWrap = swiper.el.closest(".display-wrap");
+      const textBox = displayWrap.querySelector(".display-text");
+
+      const titleBox = textBox.querySelector("h2");
+      const descBox = textBox.querySelector(".desc-text");
+      const dateBox = textBox.querySelector(".date p");
+      const labelBox = textBox.querySelector(".top span");
+
+      textBox.classList.add("fade-out");
+
+      // 0.3초 후 텍스트 교체
+      setTimeout(() => {
+        if (labelBox) labelBox.textContent = label;
+        if (dateBox) dateBox.textContent = `전시 기간 | ${date}`;
+        if (titleBox) titleBox.textContent = title;
+        if (descBox) descBox.textContent = desc;
+        textBox.classList.remove("fade-out");
+      }, 300);
+    }
+
+    // --------------------------
+    // 🧭 Swiper 생성 함수
+    // --------------------------
+    function makeSwiper(selector) {
+      return new Swiper(selector, {
+        slidesPerView: 2.3,
+        spaceBetween: 60,
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        on: {
+          init() {
+            syncText(this);
+          },
+          slideChange() {
+            syncText(this);
+          },
+        },
+      });
+    }
+
+    // --------------------------
+    // 🧱 세 개의 Swiper 초기화
+    // --------------------------
+    const swipers = {
+      current: makeSwiper(".current-swiper"),
+      upcoming: makeSwiper(".upcoming-swiper"),
+      past: makeSwiper(".past-swiper"),
+    };
+
+    // --------------------------
+    // 🖱️ 탭 전환 함수
+    // --------------------------
+    function showTab(tabName) {
+      contents.forEach((c) => c.classList.toggle("active", c.id === tabName));
+      tabs.forEach((t) => t.classList.toggle("active", t.dataset.tab === tabName));
+
+      Object.entries(swipers).forEach(([name, sw]) => {
+        if (name === tabName) {
+          sw.update();
+          sw.autoplay.start();
+          syncText(sw);
+        } else {
+          sw.autoplay.stop();
+        }
+      });
+    }
+
+    // --------------------------
+    // 🖱️ 탭 클릭 이벤트
+    // --------------------------
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        showTab(tab.dataset.tab);
+      });
+    });
+
+    // 초기 상태 — 현재전시 보이기
+    showTab("current");
+  })();
+</script>
+
+</body>
+
+</html>
