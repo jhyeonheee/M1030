@@ -434,6 +434,7 @@ img {
     filter: brightness(70%);
 }
 
+
 #fullpage #section1 .main .section01 .inner .swiper.mainVisual .swiper-wrapper .swiper-slide .title {
     width: 100%;
     height: 100%;
@@ -446,7 +447,7 @@ img {
     left: 0;
     text-align: center;
     line-height: 200px;
-    border: 5px solid #FF8800;
+    border: 3px solid #FF8800;
     display: none;
 }
 
@@ -1760,3 +1761,16 @@ img {
 }
 
 /* .footer end */
+
+
+/* 반응형 구현 */
+/* 태블릿 */
+@media screen and (max-width:1024px ) {
+    .header {
+        display: none;
+    }
+
+
+}
+
+/* 모바일 */
